@@ -87,7 +87,7 @@ class Widget extends Component {
                         </div>
 
                         <div>
-                            <ToggleBar onToggle={this.toggleComments.bind(this)} projectId={Number(this.props.match.params.id)} />
+                            <ToggleBar onToggle={this.toggleComments.bind(this)}  />
                         </div>
                     </div>
 
@@ -97,7 +97,7 @@ class Widget extends Component {
 
 
         return (
-            <ToggleBar onToggle={this.toggleComments.bind(this)} projectId={Number(this.props.match.params.id)} />
+            <ToggleBar onToggle={this.toggleComments.bind(this)} />
         )
 
 
@@ -107,7 +107,8 @@ class Widget extends Component {
 const mapStateToProps = state => ({
     authenticated: state.currentUser !== null,
     users: state.users === null ? null : state.users,
-    comments: state.messages
+    comments: state.messages,
+    project: state.project
 
 })
 

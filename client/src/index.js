@@ -5,9 +5,7 @@ import registerServiceWorker from './registerServiceWorker'
 import './index.css'
 import {Provider} from 'react-redux'
 import store from './store'
-// import LoginSignup from '../src/components/LoginSignUp'
 
-import LoginPage from '../src/components/login/LoginPage'
 ReactDOM.render(
 	<Provider store={store}>
 		<App />
