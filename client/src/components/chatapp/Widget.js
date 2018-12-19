@@ -65,9 +65,10 @@ class Widget extends Component {
 
                         <div className="rcw-messages-container">
                             {/*<div className="rcw-message-text">*/}
-                            {this.props.comments.map((comment,i) => {
-                                return <Comments  {...comment} key={i} />
+                            {this.props.comments.reverse().map(comment => {
+                                return <Comments key={comment.id}  {...comment} />
                             })}
+                            {/* <Comments comments={this.props.comments}/> */}
                         </div>
                     </div>
 
@@ -93,8 +94,10 @@ class Widget extends Component {
 const mapStateToProps = state => ({
     authenticated: state.currentUser !== null,
     users: state.users === null ? null : state.users,
-    comments: state.messages,
-    project: state.project
+    project: state.project,
+    comments: state.messages === null ? 
+    null : 
+    Object.values(state.messages).sort((a,b) => b.id - a.id),
 
 })
 
