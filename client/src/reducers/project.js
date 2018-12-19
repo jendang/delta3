@@ -1,4 +1,4 @@
-//import {FETCH_PROJECT} from '../actions/projects'
+import {FETCH_PROJECT} from '../actions/projects'
 import {USER_LOGOUT} from '../actions/users'
 
 /*
@@ -10,8 +10,8 @@ export default (state = null, action) => {
     case USER_LOGOUT:
       return null
       
-    // case FETCH_PROJECT:
-    //     return action.project
+    case FETCH_PROJECT:
+        return action.payload
     
     default:
       return state

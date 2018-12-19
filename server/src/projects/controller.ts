@@ -31,12 +31,12 @@ import {
     @Get('/projects/:id')
     async getProject(
       @Param('id') id: number,
-      @CurrentUser() user:User
+      // @CurrentUser() user:User
       ) {
       // return await Project.findOne({where:{id,user},relations:["messages"]})
       // const isUser = await Project.findOne({where:{id,user}})
       // const isAdmin = isUser.findOne
-      return await Project.findOne({where:{id,user}})
+      return await Project.findOne({id})
     }
   
     @Authorized()

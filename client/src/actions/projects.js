@@ -27,24 +27,24 @@ export const getProjects = () => (dispatch, getState) => {
 }
 
 // fetching project details --> also render chatbot
-// const fetchProject = project => ({
-//     type: FETCH_PROJECT,
-//     project
-// })
+const fetchProject = project => ({
+    type: FETCH_PROJECT,
+    payload: project
+})
 
-// export const getProject = (id) => (dispatch, getState) => {
-//   const state = getState()
-//   if (!state.currentUser) return null
-//   const jwt = state.currentUser.jwt
+export const getProject = (id) => (dispatch, getState) => {
+  const state = getState()
+  if (!state.currentUser) return null
+  const jwt = state.currentUser.jwt
 
-//   if (isExpired(jwt)) return dispatch(logout())
+  if (isExpired(jwt)) return dispatch(logout())
 
-//   request
-//     .get(`${baseUrl}/projects/${id}`)
-//     .set('Authorization', `Bearer ${jwt}`)
-//     .then(result => dispatch(fetchProject(result.body)))
-//     .catch(err => console.error(err))
-// }
+  request
+    .get(`${baseUrl}/projects/${id}`)
+    .set('Authorization', `Bearer ${jwt}`)
+    .then(result => dispatch(fetchProject(result.body)))
+    .catch(err => console.error(err))
+}
 
 
 const addProject = project => ({
