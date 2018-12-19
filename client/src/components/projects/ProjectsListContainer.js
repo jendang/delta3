@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react'
 import {getProjects, createProject} from '../../actions/projects'
+import {getUsers} from '../../actions/users'
 import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
 import ProjectsList from './ProjectsList'
@@ -9,7 +10,7 @@ class ProjectsListContainer extends PureComponent {
   componentDidMount() {
 
     this.props.getProjects();
-    //this.props.dispatch( getUsers() );
+    this.props.getUsers();
 
     /*if (this.props.authenticated) {
       if (this.props.projects === null) this.props.getProjects()
@@ -51,4 +52,4 @@ const mapStateToProps = state => ({
 
 })
 
-export default connect(mapStateToProps, {getProjects, createProject})(ProjectsListContainer)
+export default connect(mapStateToProps, {getProjects, createProject, getUsers})(ProjectsListContainer)
