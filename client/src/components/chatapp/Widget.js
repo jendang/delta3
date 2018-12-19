@@ -6,10 +6,7 @@ import './style.css'
 import { createMessage, getMessages } from '../../actions/messages'
 import { connect } from 'react-redux'
 import dp_ico from '../../img/dp.png'
-import fullscr_ico from '../../img/full-screen.png'
-import search_ico from '../../img/search.png'
-import minscr_ico from '../../img/minimize.png'
-import {userId} from '../../jwt'
+import { userId } from '../../jwt'
 
 class Widget extends Component {
     state = {
@@ -42,7 +39,6 @@ class Widget extends Component {
 
         this.props.createMessage(this.props.match.params.id, comment)
 
-        //console.log("submitComment:" +event.target.value)
         this.setState({
             comments: comments
         })
@@ -58,14 +54,10 @@ class Widget extends Component {
                     <div className="rcw-conversation-container">
 
                         <div className="rcw-header">
-                            {/*<button className="rcw-close-button"><img src={"###"} class="rcw-close" alt="close" /></button>*/}
                             <div>
                                 <img className="rcw-title" src={dp_ico} alt="logo" />
-                                <h4 className="rcw-title">Project #{Number(this.props.match.params.id)}</h4>
-                                <h4 className="rcw-title">Welcome {this.props.user && this.props.user.firstName}</h4>
-                                <img className="rcw-chatboxlogo" src={search_ico} alt="search content" />
-                                <img className="rcw-chatboxlogo" src={fullscr_ico} alt="full screen" />
-                                <img className="rcw-chatboxlogo" src={minscr_ico} alt="minimize windows" />
+                                <h4 className="rcw-title">Welcome {this.props.user && this.props.user.firstName} to Project #{Number(this.props.match.params.id)}
+                                </h4>
                             </div>
                         </div>
 
@@ -73,14 +65,10 @@ class Widget extends Component {
                             {/*<div className="rcw-message">*/}
                             {/*<div className="rcw-client">*/}
                             {/*<div className="rcw-message-text">*/}
-                            {this.props.comments.reverse().map((comment,i) => {
-                                return (
-                                    <div key={i}>
-
-                                        <Comments {...comment} />
-                                    </div>    
-                                )
+                            {this.props.comments.reverse().map((comment, i) => {
+                                return (<div key={i}> <Comments {...comment} /></div>)
                             })}
+
                             {/* <Comments comments={this.props.comments}/> */}
                         </div>
                     </div>
@@ -94,13 +82,11 @@ class Widget extends Component {
                     </div>
                 </div>
 
-
             )
 
         return (
             <ToggleBar onToggle={this.toggleComments.bind(this)} />
         )
-
 
     }
 }
@@ -109,12 +95,8 @@ const mapStateToProps = state => ({
     authenticated: state.currentUser !== null,
     users: state.users === null ? null : state.users,
     project: state.project,
-    comments: state.messages === null ? 
-    null : 
-    Object.values(state.messages).sort((a,b) => b.id - a.id),
-    user: state.currentUser && state.users &&
-    state.users[userId(state.currentUser.jwt)]
-
+    comments: state.messages === null ? null : Object.values(state.messages).sort((a, b) => b.id - a.id),
+    user: state.currentUser && state.users && state.users[userId(state.currentUser.jwt)]
 })
 
 export default connect(mapStateToProps, { getMessages, createMessage })(Widget)
