@@ -4,21 +4,13 @@ import LoginPage from './components/login/LoginPage'
 import SignupPage from './components/signup/SignupPage'
 import LogoutPage from './components/logout/LogoutPage'
 import './App.css'
-import TopBar from './components/layout/TopBar'
 import Widget from './components/chatapp/Widget';
 import ProjectsListContainer from './components/projects/ProjectsListContainer';
-// import {Redirect} from "react-router";
-// import {Provider} from 'react-redux'
-// <Route exact path="/signup" component={SignupPage} />
-// <Route exact path="/games" component={GamesList} />
-// <Route exact path="/games/:id" component={GameDetails} />
-// import LoginSignup from './components/LoginSignUp'
 import FixedMenuLayout from './components/FixLayout';
+import ProjectDetails from './components/projects/ProjectDetails';
 class App extends Component {
   render() {
     return (
-      
-      
       <Router>
         <div>
           <header>
@@ -34,7 +26,8 @@ class App extends Component {
             <Route exact path="/logout" component={LogoutPage} />
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/projects" component={ProjectsListContainer} />
-            <Route exact path="/projects/:id/messages" component={Widget} />
+            <Route exact path="/projects/:id" component={Widget} />
+            <Route exact path="/projects/:id" component={ProjectDetails} />
             {/* <Route exact path="/" render={ () => <Redirect to="/login" /> } /> */}
           </main>
         </div>

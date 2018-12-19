@@ -35,9 +35,9 @@ class ProjectsListContainer extends PureComponent {
         <div>
             <ProjectsList projects={this.props.projects} />
 
-            {/* <div>
+            <div>
               {authenticated && <NewRequest onSubmit={this.createNewProject}/>}
-            </div> */}
+            </div>
         </div>
     )
   }

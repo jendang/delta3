@@ -20,10 +20,18 @@ class NewRequest extends Component {
     render () {
         return (
             <div>
-                <form className="ui form attached fluid segment" onChange={this.handleChange}> 
-                    <input type="text" name="name" onChange={this.handleChange} />
+                <div className="ui attached message">
+  				    {/* <div className="header">Welcome to our site</div> */}
+  		 		    <p>New request</p>
+				</div>
+                <form className="ui form attached fluid segment" onSubmit={this.handleSubmit}> 
+                    <div className="field">
+                        <label>Project name: </label>
+                        <input type="text" name="name" onChange={this.handleChange} />
+
+                    </div>
                     <div>
-                    <button className="ui primary button">Submit</button>
+                        <button className="ui primary button">Submit</button>
                      </div>   
                 </form>
                 
