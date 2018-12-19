@@ -18,12 +18,9 @@ class Widget extends Component {
 
     componentDidMount() {
         this.props.getMessages(Number(this.props.match.params.id))
-
     }
 
     toggleComments = () => {
-
-        console.log("comments is toogled")
         this.setState({
             showComments: !this.state.showComments
         })
@@ -33,11 +30,10 @@ class Widget extends Component {
         if (event.keyCode !== 13)
             return
         const comment = {
-            content: event.target.value,
-
+            content: event.target.value
         }
         let comments = Object.assign([], this.state.comments)
-        comments.shift(comment)
+        comments.push(comment)
 
         this.props.createMessage(this.props.match.params.id, comment)
 
@@ -49,11 +45,10 @@ class Widget extends Component {
         event.target.value = "" //clear out the input
     }
 
-
     render() {
         if (this.state.showComments === true)
             return (
-                <div className="rcw-widget-container  rcw-opened">
+                <div className="rcw-widget-container">
 
                     <div className="rcw-conversation-container">
 
@@ -70,28 +65,29 @@ class Widget extends Component {
 
                         <div className="rcw-messages-container">
 
-                            <div className="rcw-message">
-                                <div className="rcw-client">
-                                    <div className="rcw-message-text">
-                                        {this.props.comments.map(comment => {
-                                            return <Comments key={comment.id} {...comment} />
-                                        })}
-                                    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <input className="input" onKeyDown={this.submitComments.bind(this)} type='text' placeholder='Type here' />
-                        </div>
-
-                        <div>
-                            <ToggleBar onToggle={this.toggleComments.bind(this)}  />
+                            {/*<div className="rcw-message">*/}
+                            {/*<div className="rcw-client">*/}
+                            {/*<div className="rcw-message-text">*/}
+                            {this.props.comments.map(comment => {
+                                return <Comments key={comment.id} {...comment} />
+                            })}
                         </div>
                     </div>
 
+
+
+
+                    <div>
+                        <input className="input" onKeyDown={this.submitComments.bind(this)} type='text' placeholder='Type here' />
+
+                    </div>
+
+                    <div>
+                        <ToggleBar onToggle={this.toggleComments.bind(this)}  />
+                    </div>
                 </div>
+
+
             )
 
 
