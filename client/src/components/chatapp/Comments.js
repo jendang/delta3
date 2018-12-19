@@ -1,3 +1,5 @@
+/* eslint-disable import/first */
+
 import React from 'react'
 const Timestamp = require('react-timestamp')
 import './style.css'
