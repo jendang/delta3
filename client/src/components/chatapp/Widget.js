@@ -9,6 +9,7 @@ import dp_ico from '../../img/dp.png'
 import fullscr_ico from '../../img/full-screen.png'
 import search_ico from '../../img/search.png'
 import minscr_ico from '../../img/minimize.png'
+import {userId} from '../../jwt'
 
 class Widget extends Component {
     state = {
@@ -19,6 +20,10 @@ class Widget extends Component {
     componentDidMount() {
         this.props.getMessages(Number(this.props.match.params.id))
     }
+
+    // componentDidUpdate() {
+    //     this.comment.scrollIntoView({ behavior: "smooth" })
+    // }
 
     toggleComments = () => {
         this.setState({
@@ -57,6 +62,7 @@ class Widget extends Component {
                             <div>
                                 <img className="rcw-title" src={dp_ico} alt="logo" />
                                 <h4 className="rcw-title">Project #{Number(this.props.match.params.id)}</h4>
+                                <h4 className="rcw-title">Welcome {this.props.user && this.props.user.firstName}</h4>
                                 <img className="rcw-chatboxlogo" src={search_ico} alt="search content" />
                                 <img className="rcw-chatboxlogo" src={fullscr_ico} alt="full screen" />
                                 <img className="rcw-chatboxlogo" src={minscr_ico} alt="minimize windows" />
@@ -67,8 +73,13 @@ class Widget extends Component {
                             {/*<div className="rcw-message">*/}
                             {/*<div className="rcw-client">*/}
                             {/*<div className="rcw-message-text">*/}
-                            {this.props.comments.reverse().map(comment => {
-                                return <Comments key={comment.id}  {...comment} />
+                            {this.props.comments.reverse().map((comment,i) => {
+                                return (
+                                    <div key={i}>
+
+                                        <Comments {...comment} />
+                                    </div>    
+                                )
                             })}
                             {/* <Comments comments={this.props.comments}/> */}
                         </div>
@@ -101,6 +112,8 @@ const mapStateToProps = state => ({
     comments: state.messages === null ? 
     null : 
     Object.values(state.messages).sort((a,b) => b.id - a.id),
+    user: state.currentUser && state.users &&
+    state.users[userId(state.currentUser.jwt)]
 
 })
 
