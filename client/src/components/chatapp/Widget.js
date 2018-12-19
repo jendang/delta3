@@ -64,7 +64,6 @@ class Widget extends Component {
                         </div>
 
                         <div className="rcw-messages-container">
-
                             {/*<div className="rcw-message">*/}
                             {/*<div className="rcw-client">*/}
                             {/*<div className="rcw-message-text">*/}
@@ -74,23 +73,17 @@ class Widget extends Component {
                         </div>
                     </div>
 
-
-
-
-                    <div>
-                        <input className="input" onKeyDown={this.submitComments.bind(this)} type='text' placeholder='Type here' />
-
+                    <div className="rcw-new-message" >
+                        <input onKeyDown={this.submitComments.bind(this)} type='text' placeholder='Type here' />
                     </div>
 
                     <div>
-                        <ToggleBar onToggle={this.toggleComments.bind(this)}  />
+                        <ToggleBar onToggle={this.toggleComments.bind(this)} />
                     </div>
                 </div>
 
 
             )
-
-
 
         return (
             <ToggleBar onToggle={this.toggleComments.bind(this)} />

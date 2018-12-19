@@ -11,9 +11,9 @@ export default (props) => {
     // checkAdmin = false => set className='rcw-client' to align box to right
     return (
         <div className="rcw-message" key={props.id}>
-            <div className={props.user.admin ? "rcw-response" : "rcw-client"}>
+            <div className={JSON.parse(props.user.admin) ? "rcw-response" : "rcw-client"}>
             {console.log(props.user, 'props.user')}
-            {console.log(props.user.admin, 'props.user.admin')}
+            {console.log(typeof(JSON.parse(props.user.admin)), 'props.user.admin')}
                 <div><b>{props.user.firstName}</b></div>
                 <div>{props.content}</div>
                 <div>
