@@ -33,7 +33,7 @@ class Widget extends Component {
             content: event.target.value
         }
         let comments = Object.assign([], this.state.comments)
-        comments.shift(comment)
+        comments.push(comment)
 
         this.props.createMessage(this.props.match.params.id, comment)
 
@@ -65,27 +65,27 @@ class Widget extends Component {
 
                         <div className="rcw-messages-container">
 
-                            <div className="rcw-message">
-                                <div className="rcw-client">
-                                    <div className="rcw-message-text">
-                                        {this.props.comments.map(comment => {
-                                            return <Comments key={comment.id} {...comment} />
-                                        })}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <input className="input" onKeyDown={this.submitComments.bind(this)} type='text' placeholder='Type here' />
-                        </div>
-
-                        <div>
-                            <ToggleBar onToggle={this.toggleComments.bind(this)} projectId={Number(this.props.match.params.id)} />
+                            {/*<div className="rcw-message">*/}
+                            {/*<div className="rcw-client">*/}
+                            {/*<div className="rcw-message-text">*/}
+                            {this.props.comments.map(comment => {
+                                return <Comments key={comment.id} {...comment} />
+                            })}
                         </div>
                     </div>
 
+
+
+                    <div>
+                        <input className="input" onKeyDown={this.submitComments.bind(this)} type='text' placeholder='Type here' />
+                    </div>
+
+                    <div>
+                        <ToggleBar onToggle={this.toggleComments.bind(this)} projectId={Number(this.props.match.params.id)} />
+                    </div>
                 </div>
+
+
             )
 
 

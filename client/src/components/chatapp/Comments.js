@@ -7,14 +7,16 @@ import './style.css'
 export default (props) => {
 
     return (
+        <div className="rcw-message" key={props.id}>
+            <div className="rcw-client">
+                <div>
+                    <Timestamp time={props.time} format='full' includeDay />
+                </div>
+                <div><b>{props.user.firstName}: </b></div>
+                <div><i>{props.content}</i></div>
 
-        <div key={props.id}>
-            <div><b>{props.user.firstName}: </b></div>
-            <div><i>{props.content}</i></div>
-            <div>
-                <Timestamp time={props.time} format='full' includeDay />
+                {console.log(props.user['id'])}
             </div>
-            {console.log(props.user['id'])}
         </div>
     )
 }
