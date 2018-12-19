@@ -33,7 +33,7 @@ class Widget extends Component {
             content: event.target.value
         }
         let comments = Object.assign([], this.state.comments)
-        comments.unshift(comment)
+        comments.push(comment)
 
         this.props.createMessage(Number(this.props.match.params.id), comment)
 
@@ -65,8 +65,8 @@ class Widget extends Component {
 
                         <div className="rcw-messages-container">
                             {/*<div className="rcw-message-text">*/}
-                            {this.props.comments.reverse().map(comment => {
-                                return <Comments key={comment.id}  {...comment} />
+                            {this.props.comments.reverse().map((comment,i) => {
+                                return <Comments key={i}  {...comment} />
                             })}
                             {/* <Comments comments={this.props.comments}/> */}
                         </div>
