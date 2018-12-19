@@ -7,19 +7,20 @@ import './App.css'
 import Widget from './components/chatapp/Widget';
 import ProjectsListContainer from './components/projects/ProjectsListContainer';
 import FixedMenuLayout from './components/FixLayout';
-import ProjectDetails from './components/projects/ProjectDetails';
+// import ProjectDetails from './components/projects/ProjectDetails';
 class App extends Component {
   render() {
     return (
       <Router>
         <div>
           <header>
-          <FixedMenuLayout />
+
+          {/* <FixedMenuLayout /> */}
 
           </header>
-          {/* <nav>
-            <TopBar />
-          </nav> */}
+          <nav>
+            <FixedMenuLayout />
+          </nav>
           <main style={{marginTop:75}}>
             {/* <Route exact path="/test" component={FixedMenuLayout} /> */}
             <Route exact path="/login" component={LoginPage} />
@@ -27,7 +28,7 @@ class App extends Component {
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/projects" component={ProjectsListContainer} />
             <Route exact path="/projects/:id" component={Widget} />
-            <Route exact path="/projects/:id" component={ProjectDetails} />
+            {/* <Route exact path="/projects/:id" component={ProjectDetails} /> */}
             {/* <Route exact path="/" render={ () => <Redirect to="/login" /> } /> */}
           </main>
         </div>
