@@ -9,23 +9,23 @@ export default (props) => {
     return (
         <div className="rcw-message" key={props.id}>
             <div className="rcw-client">
-                <div>
-                    <Timestamp time={props.time} format='full' includeDay />
-                </div>
                 <div><b>{props.user.firstName}: </b></div>
                 <div><i>{props.content}</i></div>
+                <div>
+                    <Timestamp time={props.time} format='full' />
+                </div>
 
                 {console.log(props.user['id'])}
             </div>
+            {/*props.ticket.comments.map(comment =>
+                                                        <div className="comment" key={comment.id}>
+                                                          <div className="comment-author">{comment.user.username}: </div>
+                                                          <div className="comment-test">{comment.text}</div>
+                                                    </div>)*/}
         </div>
     )
 }
 
 
-{/*props.ticket.comments.map(comment =>
-                                            <div className="comment" key={comment.id}>
-                                              <div className="comment-author">{comment.user.username}: </div>
-                                              <div className="comment-test">{comment.text}</div>
-                                        </div>)*/}
 
 

@@ -19,8 +19,8 @@ class ProjectDetails extends PureComponent {
             <Step.Group className="project">
                 <Step active>    
                      <Step.Content>
-                        <Step.Title>{this.props.project && this.props.project.name}</Step.Title>
-                        <Step.Description> </Step.Description>
+                        <Step.Title>Project name</Step.Title>
+                        <Step.Description>{this.props.project && this.props.project.name}</Step.Description>
                      </Step.Content>
                 </Step>
                 <Step >    
