@@ -123,6 +123,8 @@
     margin:0;
     padding:0 0px 0 30px;
     vertical-align:middle;
+    width: 14px;
+    height: 14px;
 }
 
 .rcw-conversation-container .rcw-close-button{
@@ -374,11 +376,18 @@
     margin-left:auto
 }
 
-.rcw-client,.rcw-response{
+.rcw-client{
     border-radius:10px;
     padding: 15px;
     max-width:215px;
-    text-align:left
+    text-align:right;
+}
+
+.rcw-response{
+    border-radius:10px;
+    padding: 15px;
+    max-width:215px;
+    text-align:left;
 }
 
 .rcw-response{
@@ -421,4 +430,3 @@
 .rcw-link{
     font-size:12px
 }
-
