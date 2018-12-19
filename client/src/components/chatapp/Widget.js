@@ -76,6 +76,7 @@ class Widget extends Component {
                                         {this.props.comments.map(comment => {
                                             return <Comments key={comment.id} {...comment} />
                                         })}
+                                        {console.log(this.props.comments)}
                                     
                                     </div>
                                 </div>
