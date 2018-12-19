@@ -73,8 +73,8 @@ class Widget extends Component {
                         </div>
                     </div>
 
-                    <div className="rcw-new-message" >
-                        <input onKeyDown={this.submitComments.bind(this)} type='text' placeholder='Type here' />
+                    <div className="rcw-sender" >
+                        <input class="rcw-new-message" onKeyDown={this.submitComments.bind(this)} type='text' placeholder='Type here' />
                     </div>
 
                     <div>
