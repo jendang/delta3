@@ -33,9 +33,9 @@ class Widget extends Component {
             content: event.target.value
         }
         let comments = Object.assign([], this.state.comments)
-        comments.push(comment)
+        comments.unshift(comment)
 
-        this.props.createMessage(this.props.match.params.id, comment)
+        this.props.createMessage(Number(this.props.match.params.id), comment)
 
         //console.log("submitComment:" +event.target.value)
         this.setState({
@@ -64,17 +64,15 @@ class Widget extends Component {
                         </div>
 
                         <div className="rcw-messages-container">
-                            {/*<div className="rcw-message">*/}
-                            {/*<div className="rcw-client">*/}
                             {/*<div className="rcw-message-text">*/}
-                            {this.props.comments.map(comment => {
-                                return <Comments key={comment.id} {...comment} />
+                            {this.props.comments.map((comment,i) => {
+                                return <Comments  {...comment} key={i} />
                             })}
                         </div>
                     </div>
 
                     <div className="rcw-sender" >
-                        <input class="rcw-new-message" onKeyDown={this.submitComments.bind(this)} type='text' placeholder='Type here' />
+                        <input className="rcw-new-message" onKeyDown={this.submitComments.bind(this)} type='text' placeholder='Type here' />
                     </div>
 
                     <div>
@@ -88,7 +86,6 @@ class Widget extends Component {
         return (
             <ToggleBar onToggle={this.toggleComments.bind(this)} />
         )
-
 
     }
 }

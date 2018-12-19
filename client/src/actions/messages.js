@@ -43,5 +43,3 @@ export const createMessage = (id,message) => (dispatch, getState) => {
     .then(result => dispatch(addMessage(result.body)))
     .catch(err => console.error(err))
 }
-
-
