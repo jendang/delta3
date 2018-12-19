@@ -48,7 +48,7 @@ class Widget extends Component {
     render() {
         if (this.state.showComments === true)
             return (
-                <div className="rcw-widget-container">
+                <div className="rcw-widget-container  rcw-opened">
 
                     <div className="rcw-conversation-container">
 
