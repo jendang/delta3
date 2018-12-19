@@ -78,8 +78,8 @@
 .rcw-client,.rcw-response{
     border-radius:10px;
     padding: 15px;
-    max-width:215px;
-    text-align:left
+    max-width:315px;
+    text-align:center;
 }
 
 .rcw-response{

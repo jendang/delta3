@@ -5,27 +5,21 @@ const Timestamp = require('react-timestamp')
 import './style.css'
 
 export default (props) => {
-
+    // const checkAdmin = props.user.admin ? 'response' : 'client'
+    // console.log(checkAdmin, 'firstcheck')
+    // checkAdmin = true => set className='rcw-response' to align box to left
+    // checkAdmin = false => set className='rcw-client' to align box to right
     return (
         <div className="rcw-message" key={props.id}>
-            <div className="rcw-client">
+            <div className={props.user.admin ? "rcw-response" : "rcw-client"}>
+            {console.log(props.user, 'props.user')}
+            {console.log(props.user.admin, 'props.user.admin')}
+                <div><b>{props.user.firstName}</b></div>
+                <div>{props.content}</div>
                 <div>
-                    <Timestamp time={props.time} format='full' includeDay />
+                    <Timestamp time={props.time} format='full' />
                 </div>
-                <div><b>{props.user.firstName}: </b></div>
-                <div><i>{props.content}</i></div>
-
-                {console.log(props.user['id'])}
             </div>
         </div>
     )
 }
-
-
-{/*props.ticket.comments.map(comment =>
-                                            <div className="comment" key={comment.id}>
-                                              <div className="comment-author">{comment.user.username}: </div>
-                                              <div className="comment-test">{comment.text}</div>
-                                        </div>)*/}
-
-
