@@ -18,9 +18,7 @@ class Widget extends Component {
         this.props.getMessages(Number(this.props.match.params.id))
     }
 
-    // componentDidUpdate() {
-    //     this.comment.scrollIntoView({ behavior: "smooth" })
-    // }
+ 
 
     toggleComments = () => {
         this.setState({
