@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 import dp_ico from '../../img/dp.png'
 import { userId } from '../../jwt'
 
+
 class Widget extends Component {
     state = {
         showComments: false,
@@ -16,11 +17,10 @@ class Widget extends Component {
 
     componentDidMount() {
         this.props.getMessages(Number(this.props.match.params.id))
+        
     }
-
-    // componentDidUpdate() {
-    //     this.comment.scrollIntoView({ behavior: "smooth" })
-    // }
+   
+        
 
     toggleComments = () => {
         this.setState({
@@ -37,11 +37,14 @@ class Widget extends Component {
         let comments = Object.assign([], this.state.comments)
         comments.push(comment)
 
+        
         this.props.createMessage(this.props.match.params.id, comment)
 
+        
         this.setState({
             comments: comments
         })
+        
 
         event.target.value = "" //clear out the input
     }
@@ -62,14 +65,18 @@ class Widget extends Component {
                         </div>
 
                         <div className="rcw-messages-container">
-                            {/*<div className="rcw-message">*/}
-                            {/*<div className="rcw-client">*/}
-                            {/*<div className="rcw-message-text">*/}
+        
                             {this.props.comments.reverse().map((comment, i) => {
-                                return (<div key={i}> <Comments {...comment} /></div>)
+                                return (
+                                
+                                <div key={i}> 
+                                    <Comments {...comment} />
+                                    <div ref={i}></div>
+                                </div>
+                            )
                             })}
 
-                            {/* <Comments comments={this.props.comments}/> */}
+                            
                         </div>
                     </div>
 
