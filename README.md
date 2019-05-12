@@ -10,7 +10,7 @@
 
 A live-chat box need to be implemented into Deltaproto's webpage after client logged-in into their profile page. However, the live-chat is just based on project. Every project includes all information such as quantity of prototype, types of PCBA, prices .... Clients can use the chat-box to communicate with employees of Deltaproto to check/question about a specific project only. 
 
-![live-chat-demo](https://github.com/jendang/live-chat-deltaproto)
+![live-chat-demo](https://github.com/jendang/live-chat-deltaproto/blob/master/live-chat-demo.png)
 
 ## Table of contents
 
